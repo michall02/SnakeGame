@@ -11,7 +11,7 @@ import java.util.LinkedList;
 @ToString
 @EqualsAndHashCode
 public class Snake {
-
+    @Getter
     private SnakeDirection direction;
     @Getter
     private LinkedList<GameField> tail = new LinkedList<>();
