@@ -14,8 +14,8 @@ import java.util.List;
 public class Game {
     @Setter(AccessLevel.NONE)
     private Snake snake;
-    private int areaHeight = 10;
-    private int areaWidth = 10;
+    private int areaHeight = 15;
+    private int areaWidth = 15;
     private GameField apple;
     private boolean alreadyMoved;
 

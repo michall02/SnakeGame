@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -11,12 +12,16 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import pl.sda.snake.*;
 
+import java.io.File;
+
 public class SnakeApplication extends Application {
 
     private Game game;
     private static final double FIELD_HEIGHT = 64;
     private static final double FIELD_WIDTH = 64;
     private Canvas canvas;
+    private Image appleImage;
+    private Image grassImage;
 
     public static void main(String[] args) {
         launch(args);
@@ -24,6 +29,11 @@ public class SnakeApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        File appleFille = new File("C:\\Users\\micha\\IdeaProjects\\snake\\src\\main\\resources\\apple.png");
+        File grassFille = new File("C:\\Users\\micha\\IdeaProjects\\snake\\src\\main\\resources\\grass.jpg");
+        grassImage = new Image(grassFille.toURI().toString());
+        appleImage = new Image(appleFille.toURI().toString());
+
         game = new Game(
                 new Snake(SnakeDirection.RIGHT,
                         new GameField(2, 0),
@@ -52,9 +62,11 @@ public class SnakeApplication extends Application {
                     isOver = true;
                     GraphicsContext gc = canvas.getGraphicsContext2D();
                     gc.setStroke(Color.BLACK);
+                    gc.setFill(Color.WHITE);
                     gc.setTextAlign(TextAlignment.CENTER);
-                    gc.setFont(Font.font(64));
+                    gc.setFont(Font.font(80));
                     gc.strokeText("GAME OVER", canvas.getWidth()/2,canvas.getHeight()/2);
+                    gc.fillText("GAME OVER", canvas.getWidth()/2,canvas.getHeight()/2);
                 }
             }
         }).start();
@@ -90,7 +102,7 @@ public class SnakeApplication extends Application {
     private void paint() {
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        gc.drawImage(grassImage,0,0, canvas.getWidth(), canvas.getHeight());
 
         gc.setStroke(Color.LIGHTGRAY);
         for (int x = 0; x <= game.getAreaWidth(); x++) {
@@ -104,10 +116,10 @@ public class SnakeApplication extends Application {
             gc.fillRect(field.getX() * FIELD_WIDTH, field.getY() * FIELD_HEIGHT, FIELD_WIDTH, FIELD_HEIGHT);
         });
 
-
         GameField apple = game.getApple();
-        gc.setFill(Color.RED);
-        gc.fillRect(apple.getX() * FIELD_WIDTH, apple.getY() * FIELD_HEIGHT, FIELD_WIDTH, FIELD_HEIGHT);
+        gc.drawImage(appleImage,apple.getX()*FIELD_WIDTH,apple.getY()*FIELD_HEIGHT, FIELD_WIDTH, FIELD_HEIGHT);
+
+
 
     }
 }
