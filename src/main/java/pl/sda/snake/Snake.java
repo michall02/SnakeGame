@@ -27,7 +27,7 @@ public class Snake {
         tail.removeLast();
     }
 
-    private GameField getNextField() {
+    public GameField getNextField() {
         switch(direction){
             case RIGHT: return getHead().getRight();
             case LEFT: return getHead().getLeft();

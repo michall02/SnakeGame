@@ -9,7 +9,7 @@ public class GameTest {
 
     //to zasada któa wykonuje sie dla każdego testu, taka ogólna zasada, tu mówimy że nie oczekujemy żadnego wyjątku
     @Rule
-    private ExpectedException expectedException = ExpectedException.none();
+    public ExpectedException expectedException = ExpectedException.none();
 
     @Test
     public void shouldMoveForwardWhenTheIsNoAction(){

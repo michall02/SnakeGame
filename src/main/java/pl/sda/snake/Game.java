@@ -17,7 +17,19 @@ public class Game {
 
 
     public void nextTurn() {
+        GameField nextField = snake.getNextField();
+        if(isXOutOfArea(nextField) || isYOutOfArea(nextField)){
+            throw new GameOverException();
+        }
         snake.move();
+    }
+
+    private boolean isYOutOfArea(GameField nextField) {
+        return nextField.getY()<0 || nextField.getY() > areaHeight;
+    }
+
+    private boolean isXOutOfArea(GameField nextField) {
+        return nextField.getX()<0 || nextField.getX() > areaWidth;
     }
 
     public void moveDown() {

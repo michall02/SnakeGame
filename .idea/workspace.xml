@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2debe65-804e-4157-9909-4c4b76df80e3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/sda/snake/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/sda/snake/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/sda/snake/GameField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/sda/snake/GameField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/sda/snake/GameOverException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/sda/snake/GameOverException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/sda/snake/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/sda/snake/Snake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/sda/snake/SnakeDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/sda/snake/SnakeDirection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pl/sda/snake/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/sda/snake/GameTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,44 +18,53 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+        <entry file="file://$PROJECT_DIR$/src/test/java/pl/sda/snake/GameTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="41" column="10" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
+            <state relative-caret-position="544">
+              <caret line="157" column="16" selection-start-line="157" selection-start-column="16" selection-end-line="157" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#shouldMoveForwardWhenTheIsNoAction#0;class#GameTest#0" />
+                <element signature="method#shouldMoveForwardWhenTheIsNoAction#1;class#GameTest#0" />
+                <element signature="method#shouldMoveDownWhenThereIsDownAction#1;class#GameTest#0" />
+                <element signature="method#shouldMoveUpWhenThereIsUpAction#1;class#GameTest#0" />
+                <element signature="method#shouldMoveLeftWhenThereIsLeftAction#1;class#GameTest#0" />
+                <element signature="method#shouldMoveRightWhenThereIsRightAction#1;class#GameTest#0" />
+                <element signature="e#1229#1230#0" expanded="true" />
+                <element signature="e#1271#1272#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/sda/snake/Game.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/sda/snake/GameOverException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+            <state relative-caret-position="85">
+              <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
               <folding>
-                <element signature="e#152#153#0" expanded="true" />
-                <element signature="e#172#173#0" expanded="true" />
-                <element signature="e#210#211#0" expanded="true" />
-                <element signature="e#230#231#0" expanded="true" />
-                <element signature="e#292#293#0" expanded="true" />
-                <element signature="e#345#346#0" expanded="true" />
-                <element signature="e#374#375#0" expanded="true" />
-                <element signature="e#429#430#0" expanded="true" />
-                <element signature="e#458#459#0" expanded="true" />
-                <element signature="e#513#514#0" expanded="true" />
+                <element signature="e#116#117#0" expanded="true" />
+                <element signature="e#136#137#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/pl/sda/snake/GameTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/sda/snake/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="138" column="16" lean-forward="true" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="16" />
+            <state relative-caret-position="398">
+              <caret line="29" column="55" lean-forward="true" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1229#1230#0" expanded="true" />
-                <element signature="e#1271#1272#0" expanded="true" />
+                <element signature="e#202#203#0" expanded="true" />
+                <element signature="e#236#237#0" expanded="true" />
+                <element signature="e#665#666#0" expanded="true" />
+                <element signature="e#616#617#0" expanded="true" />
+                <element signature="e#689#690#0" expanded="true" />
+                <element signature="e#883#884#0" expanded="true" />
+                <element signature="e#963#964#0" expanded="true" />
+                <element signature="e#1049#1050#0" expanded="true" />
+                <element signature="e#1133#1134#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -97,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/sda/snake/Snake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+            <state relative-caret-position="200">
+              <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#512#513#0" expanded="true" />
@@ -128,10 +133,11 @@
         <option value="$PROJECT_DIR$/src/test/java/pl/sda/snake/GameTest.groovy" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/pl/sda/snake/GameField.java" />
-        <option value="$PROJECT_DIR$/src/test/java/pl/sda/snake/GameTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/sda/snake/Game.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/sda/snake/Snake.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/sda/snake/SnakeDirection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/sda/snake/GameOverException.java" />
+        <option value="$PROJECT_DIR$/src/test/java/pl/sda/snake/GameTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/sda/snake/Snake.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/sda/snake/Game.java" />
       </list>
     </option>
   </component>
@@ -153,7 +159,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="136" />
     <option name="y" value="70" />
     <option name="width" value="1750" />
@@ -256,7 +262,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550395415158" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550398549469" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Groovy JUnit" value="groovy.util.GroovyTestCase" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
@@ -373,21 +379,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GameTest - 2019.02.17 at 10h 02m 22s.xml">
-      <configuration name="GameTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GameTest - 2019.02.17 at 10h 08m 16s.xml">
-      <configuration name="GameTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GameTest - 2019.02.17 at 10h 08m 30s.xml">
-      <configuration name="GameTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GameTest - 2019.02.17 at 10h 09m 29s.xml">
-      <configuration name="GameTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GameTest - 2019.02.17 at 10h 14m 07s.xml">
-      <configuration name="GameTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="GameTest_shouldMoveRightWhenThereIsRightAction - 2019.02.17 at 10h 16m 07s.xml">
       <configuration name="GameTest.shouldMoveRightWhenThereIsRightAction" configurationId="JUnit" />
     </history-entry>
@@ -402,6 +393,21 @@
     </history-entry>
     <history-entry file="GameTest_shouldMoveForwardWhenThereIsOppositeDirectionAction - 2019.02.17 at 10h 23m 39s.xml">
       <configuration name="GameTest.shouldMoveForwardWhenThereIsOppositeDirectionAction" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GameTest - 2019.02.17 at 10h 29m 03s.xml">
+      <configuration name="GameTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GameTest - 2019.02.17 at 11h 00m 24s.xml">
+      <configuration name="GameTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GameTest - 2019.02.17 at 11h 00m 35s.xml">
+      <configuration name="GameTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GameTest - 2019.02.17 at 11h 00m 55s.xml">
+      <configuration name="GameTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GameTest - 2019.02.17 at 11h 08m 30s.xml">
+      <configuration name="GameTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -418,7 +424,7 @@
       <window_info anchor="bottom" id="Messages" weight="0.32917964" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32502595" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32502595" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -445,6 +451,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pl/sda/snake/GameTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="157" column="16" selection-start-line="157" selection-start-column="16" selection-end-line="157" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#shouldMoveForwardWhenTheIsNoAction#0;class#GameTest#0" />
+            <element signature="method#shouldMoveForwardWhenTheIsNoAction#1;class#GameTest#0" />
+            <element signature="method#shouldMoveDownWhenThereIsDownAction#1;class#GameTest#0" />
+            <element signature="method#shouldMoveUpWhenThereIsUpAction#1;class#GameTest#0" />
+            <element signature="method#shouldMoveLeftWhenThereIsLeftAction#1;class#GameTest#0" />
+            <element signature="method#shouldMoveRightWhenThereIsRightAction#1;class#GameTest#0" />
+            <element signature="e#1229#1230#0" expanded="true" />
+            <element signature="e#1271#1272#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/sda/snake/GameOverException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
+          <folding>
+            <element signature="e#116#117#0" expanded="true" />
+            <element signature="e#136#137#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/sda/snake/Snake.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#550#551#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/sda/snake/SnakeDirection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/sda/snake/GameField.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -465,50 +519,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/sda/snake/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        <state relative-caret-position="398">
+          <caret line="29" column="55" lean-forward="true" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
           <folding>
-            <element signature="e#152#153#0" expanded="true" />
-            <element signature="e#172#173#0" expanded="true" />
-            <element signature="e#210#211#0" expanded="true" />
-            <element signature="e#230#231#0" expanded="true" />
-            <element signature="e#292#293#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#374#375#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#458#459#0" expanded="true" />
-            <element signature="e#513#514#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/sda/snake/SnakeDirection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/sda/snake/Snake.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="9" lean-forward="true" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
-            <element signature="e#550#551#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pl/sda/snake/GameTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="138" column="16" lean-forward="true" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1271#1272#0" expanded="true" />
+            <element signature="e#202#203#0" expanded="true" />
+            <element signature="e#236#237#0" expanded="true" />
+            <element signature="e#665#666#0" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#689#690#0" expanded="true" />
+            <element signature="e#883#884#0" expanded="true" />
+            <element signature="e#963#964#0" expanded="true" />
+            <element signature="e#1049#1050#0" expanded="true" />
+            <element signature="e#1133#1134#0" expanded="true" />
           </folding>
         </state>
       </provider>
