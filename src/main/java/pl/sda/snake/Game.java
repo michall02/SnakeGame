@@ -1,7 +1,12 @@
 package pl.sda.snake;
 
 
+import lombok.Getter;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 
 public class Game {
@@ -10,6 +15,9 @@ public class Game {
     private int areaHeight = 10;
     @Setter
     private int areaWidth = 10;
+    @Setter
+    @Getter
+    private GameField apple;
 
     public Game(Snake snake) {
         this.snake = snake;
@@ -21,7 +29,27 @@ public class Game {
         if(isXOutOfArea(nextField) || isYOutOfArea(nextField)){
             throw new GameOverException();
         }
+        if(snake.getTail().contains(nextField)){
+            throw new GameOverException();
+        }
+
+        if(nextField.equals(apple)){
+            snake.eatApple();
+            generateNewApple();
+        }
         snake.move();
+    }
+
+    private void generateNewApple() {
+        List<GameField> allFields = new ArrayList<>(areaHeight*areaWidth);
+        for (int y = 0; y <= areaHeight ; y++) {
+            for (int x = 0; x <= areaWidth ; x++) {
+                allFields.add(new GameField(x,y));
+            }
+        }
+        allFields.removeAll(snake.getTail());
+        Collections.shuffle(allFields);
+        apple = allFields.get(0);
     }
 
     private boolean isYOutOfArea(GameField nextField) {
@@ -44,5 +72,7 @@ public class Game {
     public void moveLeft() {
         snake.setDirection(SnakeDirection.LEFT);
     }
+
+
 
 }

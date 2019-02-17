@@ -1,6 +1,7 @@
 package pl.sda.snake;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -12,7 +13,9 @@ import java.util.LinkedList;
 public class Snake {
 
     private SnakeDirection direction;
+    @Getter
     private LinkedList<GameField> tail = new LinkedList<>();
+    private boolean isEating;
 
 
     public Snake(SnakeDirection direction, GameField... gameField) {
@@ -23,8 +26,11 @@ public class Snake {
     public void move() {
         GameField nextField = getNextField();
         tail.addFirst(nextField);
-
-        tail.removeLast();
+        if(!isEating){
+            tail.removeLast();
+        }else{
+            isEating = false;
+        }
     }
 
     public GameField getNextField() {
@@ -45,5 +51,9 @@ public class Snake {
         if(!direction.isOpposite(this.direction)){
             this.direction = direction;
         }
+    }
+
+    public void eatApple() {
+        isEating = true;
     }
 }

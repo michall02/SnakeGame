@@ -169,11 +169,78 @@ public class GameTest {
         //expect
         expectedException.expect(GameOverException.class);
         game.nextTurn();
-
-        //then
-
     }
 
+    @Test
+    public void shouldEatApple(){
+
+        //given
+        Snake snake = new Snake(SnakeDirection.DOWN,
+                field(2, 2),
+                field(2, 1),
+                field(2, 0)
+        );
+        Game game = new Game(snake);
+        game.setApple(new GameField(2,3));
+
+        //when
+        game.nextTurn();
+
+        //then
+        Snake expectedSnake = new Snake(SnakeDirection.DOWN,
+                field(2, 3),
+                field(2, 2),
+                field(2, 1),
+                field(2, 0)
+        );
+        Assert.assertEquals(expectedSnake, snake);
+    }
+
+    @Test
+    public void shouldGenerateNewApple(){
+
+        //given
+        Snake snake = new Snake(SnakeDirection.DOWN,
+                field(2, 2),
+                field(2, 1),
+                field(2, 0)
+        );
+        Game game = new Game(snake);
+        game.setApple(new GameField(2,3));
+
+        //when
+        game.nextTurn();
+
+        //then
+        GameField apple = game.getApple();
+        Assert.assertNotEquals(field(2, 3),apple);
+        Assert.assertNotEquals(field(2, 2),apple);
+        Assert.assertNotEquals(field(2, 1),apple);
+        Assert.assertNotEquals(field(2, 0),apple);
+    }
+
+    @Test
+    public void shouldGameBeOverWhenTailIsReached(){
+
+        //given
+        Snake snake = new Snake(SnakeDirection.LEFT,
+                field(2, 3),
+                field(3, 3),
+                field(3, 2),
+                field(3, 1),
+                field(2, 1),
+                field(1, 1),
+                field(1, 2),
+                field(1, 3),
+                field(1, 4)
+        );
+        Game game = new Game(snake);
+
+        //expect
+        expectedException.expect(GameOverException.class);
+        game.nextTurn();
+
+    }
 
 
 
