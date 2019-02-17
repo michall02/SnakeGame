@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a2debe65-804e-4157-9909-4c4b76df80e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/sda/snake/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/sda/snake/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/sda/snake/fx/SnakeApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/sda/snake/fx/SnakeApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/sda/snake/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/sda/snake/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pl/sda/snake/GameTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pl/sda/snake/GameTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,7 +42,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/sda/snake/fx/SnakeApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
+            <state relative-caret-position="578">
               <caret line="81" column="35" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -184,7 +180,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="136" />
     <option name="y" value="70" />
     <option name="width" value="1750" />
@@ -257,7 +253,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550411452939" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550411687422" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.Groovy JUnit" value="groovy.util.GroovyTestCase" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
@@ -266,6 +262,9 @@
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="pl.sda.snake" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\micha\IdeaProjects\snake\src\main\resources" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -413,7 +412,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550409629691</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix 2click in one turn bug">
+      <created>1550411519052</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1550411519052</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -450,9 +456,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49846154" visible="true" weight="0.20255864" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49846154" visible="true" weight="0.20255864" />
       <window_info id="Structure" order="1" sideWeight="0.50153846" side_tool="true" weight="0.20255864" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -462,7 +467,7 @@
       <window_info anchor="bottom" id="Messages" weight="0.32917964" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32502595" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32502595" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -485,7 +490,8 @@
     <MESSAGE value="add fx package" />
     <MESSAGE value="paint snake and apple" />
     <MESSAGE value="add onpressed action" />
-    <option name="LAST_COMMIT_MESSAGE" value="add onpressed action" />
+    <MESSAGE value="fix 2click in one turn bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix 2click in one turn bug" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/test/java/pl/sda/snake/GameTest.groovy" />
@@ -612,7 +618,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/sda/snake/fx/SnakeApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
+        <state relative-caret-position="578">
           <caret line="81" column="35" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
