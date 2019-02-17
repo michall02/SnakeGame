@@ -1,6 +1,7 @@
 package pl.sda.snake;
 
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,15 +9,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
+@Getter
+@Setter
 public class Game {
+    @Setter(AccessLevel.NONE)
     private Snake snake;
-    @Setter
     private int areaHeight = 10;
-    @Setter
     private int areaWidth = 10;
-    @Setter
-    @Getter
     private GameField apple;
 
     public Game(Snake snake) {
