@@ -4,20 +4,18 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import pl.sda.snake.Game;
-import pl.sda.snake.GameField;
-import pl.sda.snake.Snake;
-import pl.sda.snake.SnakeDirection;
+import pl.sda.snake.*;
 
 public class SnakeApplication extends Application {
 
     private Game game;
-    private static final double FIELD_HEIGHT = 50;
-    private static final double FIELD_WIDTH = 50;
+    private static final double FIELD_HEIGHT = 64;
+    private static final double FIELD_WIDTH = 64;
     private Canvas canvas;
 
     public static void main(String[] args) {
@@ -40,14 +38,24 @@ public class SnakeApplication extends Application {
         paint();
 
         new Thread(() -> {
-            while (true) {
+            boolean isOver = false;
+            while (!isOver) {
                 try {
                     Thread.sleep(150);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                game.nextTurn();
-                paint();
+                try{
+                    game.nextTurn();
+                    paint();
+                }catch (GameOverException e){
+                    isOver = true;
+                    GraphicsContext gc = canvas.getGraphicsContext2D();
+                    gc.setStroke(Color.BLACK);
+                    gc.setTextAlign(TextAlignment.CENTER);
+                    gc.setFont(Font.font(64));
+                    gc.strokeText("GAME OVER", canvas.getWidth()/2,canvas.getHeight()/2);
+                }
             }
         }).start();
 
@@ -71,8 +79,7 @@ public class SnakeApplication extends Application {
             }
         });
         primaryStage.setScene(scene);
-        primaryStage.setHeight(height);
-        primaryStage.setWidth(width);
+        primaryStage.sizeToScene();
         primaryStage.setResizable(false);
         primaryStage.setTitle("SNAKE");
         primaryStage.show();

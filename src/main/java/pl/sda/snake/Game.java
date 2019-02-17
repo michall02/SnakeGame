@@ -49,6 +49,7 @@ public class Game {
             }
         }
         allFields.removeAll(snake.getTail());
+        allFields.remove(apple);
         Collections.shuffle(allFields);
         apple = allFields.get(0);
     }
