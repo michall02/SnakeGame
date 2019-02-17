@@ -17,6 +17,7 @@ public class Game {
     private int areaHeight = 10;
     private int areaWidth = 10;
     private GameField apple;
+    private boolean alreadyMoved;
 
     public Game(Snake snake) {
         this.snake = snake;
@@ -37,6 +38,7 @@ public class Game {
             generateNewApple();
         }
         snake.move();
+        alreadyMoved = false;
     }
 
     private void generateNewApple() {
@@ -60,18 +62,24 @@ public class Game {
     }
 
     public void moveDown() {
-        snake.setDirection(SnakeDirection.DOWN);
+        move(SnakeDirection.DOWN);
     }
     public void moveUp() {
-        snake.setDirection(SnakeDirection.UP);
+        move(SnakeDirection.UP);
     }
     public void moveRight() {
-        snake.setDirection(SnakeDirection.RIGHT);
+        move(SnakeDirection.RIGHT);
     }
     public void moveLeft() {
-        snake.setDirection(SnakeDirection.LEFT);
+        move(SnakeDirection.LEFT);
     }
 
+    private void move(SnakeDirection direction) {
+        if(!alreadyMoved) {
+            snake.setDirection(direction);
+            alreadyMoved = true;
+        }
+    }
 
 
 }

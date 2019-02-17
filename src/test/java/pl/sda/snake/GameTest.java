@@ -242,6 +242,32 @@ public class GameTest {
 
     }
 
+    @Test
+    public void shouldIgnoreSecondActionPerTurn(){
+
+        //given
+        Snake snake = new Snake(SnakeDirection.RIGHT,
+                field(2, 1),
+                field(1, 1),
+                field(0, 1)
+        );
+        Game game = new Game(snake);
+
+        //when
+        game.moveDown();
+        game.moveLeft();
+        game.moveUp();
+        game.nextTurn();
+
+        //then
+        Snake expectedSnake = new Snake(SnakeDirection.DOWN,
+                field(2, 2),
+                field(2, 1),
+                field(1, 1)
+        );
+        Assert.assertEquals(expectedSnake, snake);
+    }
+
 
 
 
