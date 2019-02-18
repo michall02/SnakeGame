@@ -12,7 +12,7 @@ public class GameTest {
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
-    public void shouldMoveForwardWhenTheIsNoAction(){
+    public void shouldMoveForwardWhenTheIsNoAction() {
 
         //given
         Snake snake = new Snake(SnakeDirection.RIGHT,
@@ -35,7 +35,7 @@ public class GameTest {
     }
 
     @Test
-    public void shouldMoveDownWhenThereIsDownAction(){
+    public void shouldMoveDownWhenThereIsDownAction() {
 
         //given
         Snake snake = new Snake(SnakeDirection.RIGHT,
@@ -59,7 +59,7 @@ public class GameTest {
     }
 
     @Test
-    public void shouldMoveUpWhenThereIsUpAction(){
+    public void shouldMoveUpWhenThereIsUpAction() {
 
         //given
         Snake snake = new Snake(SnakeDirection.RIGHT,
@@ -83,7 +83,7 @@ public class GameTest {
     }
 
     @Test
-    public void shouldMoveLeftWhenThereIsLeftAction(){
+    public void shouldMoveLeftWhenThereIsLeftAction() {
 
         //given
         Snake snake = new Snake(SnakeDirection.DOWN,
@@ -107,7 +107,7 @@ public class GameTest {
     }
 
     @Test
-    public void shouldMoveRightWhenThereIsRightAction(){
+    public void shouldMoveRightWhenThereIsRightAction() {
 
         //given
         Snake snake = new Snake(SnakeDirection.DOWN,
@@ -131,7 +131,7 @@ public class GameTest {
     }
 
     @Test
-    public void shouldMoveForwardWhenThereIsOppositeDirectionAction(){
+    public void shouldMoveForwardWhenThereIsOppositeDirectionAction() {
 
         //given
         Snake snake = new Snake(SnakeDirection.DOWN,
@@ -155,7 +155,7 @@ public class GameTest {
     }
 
     @Test
-    public void shouldGameBeOverWhenTottomBorderIsReached(){
+    public void shouldGameBeOverWhenTottomBorderIsReached() {
 
         //given
         Snake snake = new Snake(SnakeDirection.DOWN,
@@ -172,7 +172,7 @@ public class GameTest {
     }
 
     @Test
-    public void shouldEatApple(){
+    public void shouldEatApple() {
 
         //given
         Snake snake = new Snake(SnakeDirection.DOWN,
@@ -181,7 +181,7 @@ public class GameTest {
                 field(2, 0)
         );
         Game game = new Game(snake);
-        game.setApple(new GameField(2,3));
+        game.setApple(new GameField(2, 3));
 
         //when
         game.nextTurn();
@@ -197,7 +197,7 @@ public class GameTest {
     }
 
     @Test
-    public void shouldGenerateNewApple(){
+    public void shouldGenerateNewApple() {
 
         //given
         Snake snake = new Snake(SnakeDirection.DOWN,
@@ -206,21 +206,21 @@ public class GameTest {
                 field(2, 0)
         );
         Game game = new Game(snake);
-        game.setApple(new GameField(2,3));
+        game.setApple(new GameField(2, 3));
 
         //when
         game.nextTurn();
 
         //then
         GameField apple = game.getApple();
-        Assert.assertNotEquals(field(2, 3),apple);
-        Assert.assertNotEquals(field(2, 2),apple);
-        Assert.assertNotEquals(field(2, 1),apple);
-        Assert.assertNotEquals(field(2, 0),apple);
+        Assert.assertNotEquals(field(2, 3), apple);
+        Assert.assertNotEquals(field(2, 2), apple);
+        Assert.assertNotEquals(field(2, 1), apple);
+        Assert.assertNotEquals(field(2, 0), apple);
     }
 
     @Test
-    public void shouldGameBeOverWhenTailIsReached(){
+    public void shouldGameBeOverWhenTailIsReached() {
 
         //given
         Snake snake = new Snake(SnakeDirection.LEFT,
@@ -243,7 +243,7 @@ public class GameTest {
     }
 
     @Test
-    public void shouldIgnoreSecondActionPerTurn(){
+    public void shouldIgnoreSecondActionPerTurn() {
 
         //given
         Snake snake = new Snake(SnakeDirection.RIGHT,
@@ -267,16 +267,6 @@ public class GameTest {
         );
         Assert.assertEquals(expectedSnake, snake);
     }
-
-
-
-
-
-
-
-
-
-
 
 
     private GameField field(int x, int y) {

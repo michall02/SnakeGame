@@ -24,13 +24,13 @@ import java.io.File;
 public class SnakeApplication extends Application {
 
 
-
     private static final double FIELD_HEIGHT = 64;
     private static final double FIELD_WIDTH = 64;
     private Game game;
     private Canvas canvas;
     private Image appleImage;
     private Image grassImage;
+
 
     public static void main(String[] args) {
         launch(args);
@@ -43,16 +43,19 @@ public class SnakeApplication extends Application {
         grassImage = new Image(grassFile.toURI().toString());
         appleImage = new Image(appleFile.toURI().toString());
 
-        newGame(500);
+
+        game = new Game(
+                new Snake(SnakeDirection.RIGHT,
+                        new GameField(2, 0),
+                        new GameField(1, 0),
+                        new GameField(0, 0)
+                ));
+
 
         double height = (game.getAreaHeight() + 1) * FIELD_HEIGHT;
         double width = (game.getAreaWidth() + 1) * FIELD_WIDTH;
 
         canvas = new Canvas(width, height);
-        paint();
-
-//        newThread(450);
-
         Pane pane = new Pane(canvas);
         Scene gameScene = new Scene(pane);
 
@@ -88,7 +91,7 @@ public class SnakeApplication extends Application {
         });
         Button back = new Button("BACK");
         Button play = new Button("PLAY");
-        HBox levelButtons = new HBox(back,play);
+        HBox levelButtons = new HBox(back, play);
         levelButtons.setAlignment(Pos.CENTER);
         levelButtons.setSpacing(20);
         levelButtons.setPadding(new Insets(10));
@@ -117,7 +120,7 @@ public class SnakeApplication extends Application {
         newGame.setOnAction(event -> {
             chooseLevelStage.show();
             primaryStage.close();
-        } );
+        });
 //        records.setOnAction(event -> );
         exit.setOnAction(event -> primaryStage.close());
 
@@ -127,13 +130,12 @@ public class SnakeApplication extends Application {
         });
 
         play.setOnAction(event -> {
-            if(easy.isSelected()){
-                newGame(800);
-                fieldGrid();
-            }else if(medium.isSelected()){
-                newGame(500);
-            }else if(hard.isSelected()){
-                newGame(100);
+            if (easy.isSelected()) {
+                newGame(600, 1);
+            } else if (medium.isSelected()) {
+                newGame(400, 2);
+            } else if (hard.isSelected()) {
+                newGame(200, 4);
             }
             gameStage.show();
             chooseLevelStage.close();
@@ -155,14 +157,7 @@ public class SnakeApplication extends Application {
                     game.moveLeft();
                     break;
                 case SPACE:
-                    if(easy.isSelected()){
-                        newGame(800);
-                        fieldGrid();
-                    }else if(medium.isSelected()){
-                        newGame(500);
-                    }else if(hard.isSelected()){
-                        newGame(300);
-                    }
+                    chooseLevelStage.show();
                     break;
                 case ESCAPE:
                     gameStage.close();
@@ -183,13 +178,17 @@ public class SnakeApplication extends Application {
     }
 
 
-
-    private void paint() {
+    private void paint(int multiplier) {
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
         gc.drawImage(grassImage, 0, 0, canvas.getWidth(), canvas.getHeight());
 
-//        GraphicsContext gc = fieldGrid();
+        gc.setStroke(Color.LIGHTGRAY);
+        for (int x = 0; x <= game.getAreaWidth(); x++) {
+            for (int y = 0; y <= game.getAreaHeight(); y++) {
+                gc.strokeRect(x * FIELD_WIDTH, y * FIELD_HEIGHT, FIELD_WIDTH, FIELD_HEIGHT);
+            }
+        }
 
         gc.setFill(Color.LIMEGREEN);
         game.getSnake().getTail().forEach(field -> {
@@ -214,20 +213,17 @@ public class SnakeApplication extends Application {
         gc.drawImage(appleImage, apple.getX() * FIELD_WIDTH, apple.getY() * FIELD_HEIGHT, FIELD_WIDTH, FIELD_HEIGHT);
 
 
-    }
+        gc.setStroke(Color.BLACK);
+        gc.setFill(Color.WHITE);
+        gc.setTextAlign(TextAlignment.CENTER);
+        gc.setFont(Font.font(20));
+        gc.strokeText("SCORE: " + game.getScore() * multiplier, 50, 30);
+        gc.fillText("SCORE: " + game.getScore() * multiplier, 50, 30);
 
-    private void fieldGrid() {
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.setStroke(Color.LIGHTGRAY);
-        for (int x = 0; x <= game.getAreaWidth(); x++) {
-            for (int y = 0; y <= game.getAreaHeight(); y++) {
-                gc.strokeRect(x * FIELD_WIDTH, y * FIELD_HEIGHT, FIELD_WIDTH, FIELD_HEIGHT);
-            }
-        }
 
     }
 
-    private void newGame(int speed) {
+    private void newGame(int speed, int multiplier) {
         game = new Game(
                 new Snake(SnakeDirection.RIGHT,
                         new GameField(2, 0),
@@ -236,10 +232,10 @@ public class SnakeApplication extends Application {
                 ));
         game.setApple(new GameField(6, 6));
 
-        newThread(speed);
+        newThread(speed, multiplier);
     }
 
-    private void newThread(int speed) {
+    private void newThread(int speed, int multiplier) {
         new Thread(() -> {
             boolean isOver = false;
             while (!isOver) {
@@ -250,7 +246,9 @@ public class SnakeApplication extends Application {
                 }
                 try {
                     game.nextTurn();
-                    paint();
+                    paint(multiplier);
+
+
                 } catch (GameOverException e) {
                     isOver = true;
                     gameOverAnnouncement();
@@ -258,6 +256,7 @@ public class SnakeApplication extends Application {
             }
         }).start();
     }
+
 
     private void gameOverAnnouncement() {
         GraphicsContext gc = canvas.getGraphicsContext2D();
@@ -279,5 +278,6 @@ public class SnakeApplication extends Application {
         gc.setFont(Font.font(20));
         gc.strokeText("PRESS ESC TO BACK TO MENU", canvas.getWidth() / 2, (canvas.getHeight() / 2) + 60);
         gc.fillText("PRESS ESC TO BACK TO MENU", canvas.getWidth() / 2, (canvas.getHeight() / 2) + 60);
+
     }
 }

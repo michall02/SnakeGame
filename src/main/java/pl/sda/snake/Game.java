@@ -18,6 +18,7 @@ public class Game {
     private int areaWidth = 15;
     private GameField apple;
     private boolean alreadyMoved;
+    private int score = 0;
 
     public Game(Snake snake) {
         this.snake = snake;
@@ -26,26 +27,27 @@ public class Game {
 
     public void nextTurn() {
         GameField nextField = snake.getNextField();
-        if(isXOutOfArea(nextField) || isYOutOfArea(nextField)){
+        if (isXOutOfArea(nextField) || isYOutOfArea(nextField)) {
             throw new GameOverException();
         }
-        if(snake.getTail().contains(nextField)){
+        if (snake.getTail().contains(nextField)) {
             throw new GameOverException();
         }
 
-        if(nextField.equals(apple)){
+        if (nextField.equals(apple)) {
             snake.eatApple();
             generateNewApple();
+            score++;
         }
         snake.move();
         alreadyMoved = false;
     }
 
     private void generateNewApple() {
-        List<GameField> allFields = new ArrayList<>(areaHeight*areaWidth);
-        for (int y = 0; y <= areaHeight ; y++) {
-            for (int x = 0; x <= areaWidth ; x++) {
-                allFields.add(new GameField(x,y));
+        List<GameField> allFields = new ArrayList<>(areaHeight * areaWidth);
+        for (int y = 0; y <= areaHeight; y++) {
+            for (int x = 0; x <= areaWidth; x++) {
+                allFields.add(new GameField(x, y));
             }
         }
         allFields.removeAll(snake.getTail());
@@ -55,28 +57,31 @@ public class Game {
     }
 
     private boolean isYOutOfArea(GameField nextField) {
-        return nextField.getY()<0 || nextField.getY() > areaHeight;
+        return nextField.getY() < 0 || nextField.getY() > areaHeight;
     }
 
     private boolean isXOutOfArea(GameField nextField) {
-        return nextField.getX()<0 || nextField.getX() > areaWidth;
+        return nextField.getX() < 0 || nextField.getX() > areaWidth;
     }
 
     public void moveDown() {
         move(SnakeDirection.DOWN);
     }
+
     public void moveUp() {
         move(SnakeDirection.UP);
     }
+
     public void moveRight() {
         move(SnakeDirection.RIGHT);
     }
+
     public void moveLeft() {
         move(SnakeDirection.LEFT);
     }
 
     private void move(SnakeDirection direction) {
-        if(!alreadyMoved) {
+        if (!alreadyMoved) {
             snake.setDirection(direction);
             alreadyMoved = true;
         }
