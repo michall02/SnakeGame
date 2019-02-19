@@ -2,14 +2,17 @@ package pl.sda.snake.fx;
 
 
 import javafx.application.Application;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -20,6 +23,7 @@ import javafx.stage.Stage;
 import pl.sda.snake.*;
 
 import java.io.File;
+import java.time.LocalDate;
 
 public class SnakeApplication extends Application {
 
@@ -30,6 +34,7 @@ public class SnakeApplication extends Application {
     private Canvas canvas;
     private Image appleImage;
     private Image grassImage;
+    private Player player;
 
 
     public static void main(String[] args) {
@@ -59,7 +64,9 @@ public class SnakeApplication extends Application {
         Pane pane = new Pane(canvas);
         Scene gameScene = new Scene(pane);
 
-
+        /**
+         * menu
+         */
         Button newGame = new Button("NEW GAME");
         Button records = new Button("SHOW RECORDS");
         Button exit = new Button("EXIT");
@@ -70,6 +77,9 @@ public class SnakeApplication extends Application {
         Scene startingScene = new Scene(startingPane);
 
 
+        /**
+         * levels menu
+         */
         CheckBox easy = new CheckBox("EASY");
         CheckBox medium = new CheckBox("MEDIUM");
         CheckBox hard = new CheckBox("HARD");
@@ -102,13 +112,6 @@ public class SnakeApplication extends Application {
         chooseLevel.setPadding(new Insets(10));
         Scene chooseLevelScene = new Scene(chooseLevel);
 
-
-        Stage gameStage = new Stage();
-        gameStage.setScene(gameScene);
-        gameStage.sizeToScene();
-        gameStage.setResizable(false);
-        gameStage.setTitle("SNAKE");
-
         Stage chooseLevelStage = new Stage();
         chooseLevelStage.setScene(chooseLevelScene);
         chooseLevelStage.setWidth(250);
@@ -116,12 +119,75 @@ public class SnakeApplication extends Application {
         chooseLevelStage.setResizable(false);
         chooseLevelStage.setTitle("CHOOSE LEVEL");
 
+        /**
+         * records list
+         */
+        TableColumn<Player, String> nameColumn = new TableColumn<>("Name");
+        TableColumn<Player, Integer> scoreColumn = new TableColumn<>("Score");
+        TableColumn<Player, LocalDate> dateColumn = new TableColumn<>("Time");
+
+        ObservableList<Player> data = FXCollections.observableArrayList();
+        TableView<Player> tableView = new TableView<>(data);
+        nameColumn.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getName()));
+        scoreColumn.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getScore()));
+        dateColumn.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getDate()));
+
+        tableView.getColumns().add(nameColumn);
+        tableView.getColumns().add(scoreColumn);
+        tableView.getColumns().add(dateColumn);
+
+
+        Scene recordsListScene = new Scene(tableView);
+        Stage recordsListStage = new Stage();
+        recordsListStage.setScene(recordsListScene);
+
+        /**
+         * save record
+         */
+        Button backToGame = new Button("BACK");
+        Button save = new Button("SAVE");
+        HBox saveButtons = new HBox(backToGame, save);
+        saveButtons.setAlignment(Pos.CENTER);
+        saveButtons.setSpacing(20);
+        saveButtons.setPadding(new Insets(10));
+
+
+        Label score = new Label("SCORE: " + game.getScore());
+        Label time = new Label("DATE: " + LocalDate.now());
+        TextField name = new TextField("ENTER NAME");
+        HBox saveFields = new HBox(name, score, time);
+        saveFields.setAlignment(Pos.CENTER);
+        saveFields.setSpacing(20);
+        saveFields.setPadding(new Insets(10));
+
+        VBox saveRecord = new VBox(saveFields, saveButtons);
+        saveRecord.setAlignment(Pos.CENTER);
+        saveRecord.setSpacing(20);
+        saveRecord.setPadding(new Insets(10));
+        Scene saveRecordScene = new Scene(saveRecord);
+        Stage saveStage = new Stage();
+        saveStage.setScene(saveRecordScene);
+
+        /**
+         * game
+         */
+        Stage gameStage = new Stage();
+        gameStage.setScene(gameScene);
+        gameStage.sizeToScene();
+        gameStage.setResizable(false);
+        gameStage.setTitle("SNAKE");
+
+
+
 
         newGame.setOnAction(event -> {
             chooseLevelStage.show();
             primaryStage.close();
         });
-//        records.setOnAction(event -> );
+        records.setOnAction(event -> {
+            primaryStage.close();
+            recordsListStage.show();
+        });
         exit.setOnAction(event -> primaryStage.close());
 
         back.setOnAction(event -> {
@@ -162,7 +228,9 @@ public class SnakeApplication extends Application {
                 case ESCAPE:
                     gameStage.close();
                     primaryStage.show();
-
+                    break;
+                case S:
+                    saveStage.show();
             }
         });
 
